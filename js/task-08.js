@@ -5,11 +5,15 @@ const onSubmitForm = event => {
 
   const { elements } = event.currentTarget;
 
-  if (elements['email'].value === '' || elements['password'].value.trim() === '') {
+  const emailValue = elements['email'].value;
+  const passwordValue = elements['password'].value;
+
+  if (emailValue === '' || passwordValue.trim() === '') {
     alert('All fields must be filled');
     return;
   }
-  console.log(`Email: ${email.value}, password: ${password.value}`);
+  console.log({ email: `${emailValue}`, password: `${passwordValue}` });
+
   event.currentTarget.reset();
 };
 formRef.addEventListener('submit', onSubmitForm);
